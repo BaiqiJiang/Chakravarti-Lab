@@ -1,0 +1,34 @@
+[[[Update Log]]]
+
+Alpha Release [April 03, 2024]:
+	- Testing version. Contains only the framework without packaging.
+
+Beta Release [April 03, 2024]:
+	- Testing version.
+	- Added some test parameters.
+	- Changed the comparison logic and fixed calculation errors caused by incorrect logic. Previously, variants were considered the same locus if only the chromosome and position matched. Now, this logic is more precise: a variant is considered the same locus only if the chromosome, position, REF, and ALT all match.
+	- Changed the logic for identifying SNPs and INDELs from determining the length of ALT to using cyvcf2's built-in method for identification.
+
+Version 1.0.0 [April 04, 2024]:
+	- Official version, packaged for use. Users no longer need to manually modify parameters in the code to specify inputs and outputs but can directly enter parameters in the console to call the tool.
+
+Version 1.1.0 [April 04, 2024]:
+	- The output's two concordances have been changed from precise to the fourth decimal place to the tenth decimal place, providing more precise statistical data.
+	- Added the optional stat_counts parameter, providing users with additional usable statistical data.
+
+Version 1.2.0 [April 04, 2024]:
+	- Added two new optional parameters, offering users the functionality to automatically generate statistical charts.
+
+Version 1.3.0 [April 04, 2024]:
+	- Upgraded the logic for the plotting function. Now, each variant type will have only one figure, displaying GT Concordance and Non-Reference GT Concordance with different colored dots and lines for easy comparison.
+
+Version 1.4.0 [April 04, 2024]:
+	- Added run logs.
+	- Added module execution retrieval statements. When a module starts or ends running, the statement will be printed in the logs.
+	- Added timing statements, displaying the run time for each module as well as the total run time of the script, and printed in the logs.
+	- Added statements for tracking the number of variant retrievals. When retrieving variants, for every ten thousand variants retrieved, it will be printed in the logs, including the chromosome and position information of the last retrieved variant. After all retrievals are complete, the total number will be printed.
+	- Fixed some syntax errors.
+
+
+
+
