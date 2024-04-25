@@ -61,10 +61,6 @@ I sincerely appreciate the guidance and contributions of Dr. Or Yaacov in the co
 
 1. Pedersen BS, Quinlan AR. cyvcf2: fast, flexible variant analysis with Python. Bioinformatics. 2017;33(12):1867-1869. doi:10.1093/bioinformatics/btx057
 
-[[[Copyright]]]
-
-This tool was independently developed by Baiqi Jiang under the guidance of Dr. Or Yaccov and is licensed for use by the Chakravarti Lab. Copyright belongs jointly to the above three parties. Any use, plagiarism, modification, or publication of this tool without the consent of the above three parties will be legally pursued. After obtaining authorization, please cite the above three parties when using this tool.
-
 [[[Contact Information]]]
 
 If you have questions about using the tool, request for functionality updates, bug fixes, or have any other inquiries, please contact:
