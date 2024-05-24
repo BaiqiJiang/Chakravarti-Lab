@@ -17,6 +17,12 @@ Compared to GATK 4.2.3.0's Picard Genotype Concordance, our advantages include:
 3. cyvcf2 [0.30.28]
 4. matplotlib [3.7.5]
 
+[[[Computing Environment Required]]]
+
+Currently, this tool requires you to have a relative large RAM, depends on your call VCF's file size. For example, if your call VCF's file size is 32GB, you may want to use a 40GB RAM to complete your task. We strongly recommend you to use a High-Performance Computing Core (HPCC) instead of a personal computer. 
+
+If you don't have an applicable computing environment that meets the requirements, we are currently working on a major update for significantly saving users' RAM. Once completed, for most of the common VCF files, a 16GB RAM might be enough. This update is expected to complete by August, 2024.
+
 [[[Usage Example]]]
 
 python calculate_concor.py --truth_vcf HG00099ori.chr21.vcf.gz --call_vcf HG00099cp.chr21.vcf.gz --sample_truth HG00099ori --sample_call HG00099cp --info_field AF --intervals "0-0.01" "0.01-0.02" "0.02-0.05" "0.05-0.1" "0.1-0.2" "0.2-0.5" "0.5-1.0" --output_path output.tsv
@@ -31,7 +37,7 @@ For brief versions of this section, refer to the -h (help) function.
 --sample_call: The sample name within the --call_vcf.
 --info_field: The INFO field for interval filtering, such as AF or RAF. This parameter must exist under INFO in both VCF files.
 --intervals: The filtering intervals, automatically filtered according to --info_field.
---output_path: The path to the output file, preferably in TSV format.
+--output_path: The path to the output file, it must be set as a TSV file.
 
 [[[Optional Parameters]]]
 
@@ -40,6 +46,7 @@ For brief versions of this section, refer to the -h (help) function.
 --stat_counts: Default is False. When True, includes counts of TP, TN, FP, FN in the output file.
 --generate_figs: Default is False. When True, requires --figs_path to be specified for generating concordance scatter plots based on variant types and info intervals.
 --figs_path: Default is empty. Must be filled when --generate_figs is True. The path where charts will be stored.
+--get_info_from_call: Default is False. When True, get INFOs from call VCF instead of truth VCF. We strongly recommend you to ignore this parameter, unless you DO NOT have INFOs for your truth VCF.
 
 [[[Output File Explanations]]]
 
@@ -51,7 +58,7 @@ For brief versions of this section, refer to the -h (help) function.
 6. TN_Counts: The number of TN. At the same locus, if both the truth and call samples are REF, it counts as TN.
 7. FP_Counts: The number of FP. At the same locus, if the truth sample is REF while the call sample is ALT, it counts as FP.
 8. FN_Counts: The number of FN. At the same locus, if the truth sample is ALT while the call sample is REF, it counts as FN.
-9. Not_Matched: The number of loci detected in the truth set but not in the call set. Here, loci refer to the matching of Chr, POS, REF, and ALT parameters. For example, for a specific data point, if the Chr, POS, REF, and ALT are exactly the same for two samples, they belong to the same locus.
+9. Not_Matched: The number of loci detected in the truth set but not in the call set. Here, loci refer to the matching of CHROM, POS, REF, and ALT parameters. For example, for a specific data point, if the CHROM, POS, REF, and ALT are exactly the same for two samples, they belong to the same locus.
 
 [[[Acknowledgements]]]
 
